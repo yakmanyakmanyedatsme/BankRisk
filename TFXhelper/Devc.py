@@ -1,3 +1,10 @@
+from tfx.components.example_gen.csv_example_gen.component import CsvExampleGen
+from tfx.utils.dsl_utils import csv_input
+from tfx.components import StatisticsGen
+from tfx.components import SchemaGen
+from tfx.components import ExampleValidator
+
+
 class devc:
     def __init__(self, base_dir, csvname):
         self.base_dir = base_dir
