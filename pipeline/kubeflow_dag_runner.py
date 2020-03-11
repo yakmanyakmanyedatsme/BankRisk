@@ -20,18 +20,6 @@ SERVING_MODEL_DIR = os.path.join(PIPELINE_ROOT, 'serving_model')
 BUCKET=config.GCS_BUCKET_NAME
 CSV_FILE='Global_banks_ready.csv'
 def run():
-  """Define a kubeflow pipeline."""
-
-  # Metadata config. The defaults works work with the installation of
-  # KF Pipelines using Kubeflow. If installing KF Pipelines using the
-  # lightweight deployment option, you may need to override the defaults.
-  # If you use Kubeflow, metadata will be written to MySQL database inside
-  # Kubeflow cluster.
-  metadata_config = kubeflow_dag_runner.get_default_kubeflow_metadata_config()
-
-  # This pipeline automatically injects the Kubeflow TFX image if the
-  # environment variable 'KUBEFLOW_TFX_IMAGE' is defined. Currently, the tfx
-  # cli tool exports the environment variable to pass to the pipelines.
   tfx_image = os.environ.get('KUBEFLOW_TFX_IMAGE', None)
 
   runner_config = kubeflow_dag_runner.KubeflowDagRunnerConfig(
